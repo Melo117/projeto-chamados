@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Permite acessar métodos como PATH_INFO
+AcceptPathInfo On
+
+# Redireciona tudo que não for arquivo/pasta física para o router ou script
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/usuarios/(.*)$ api/usuarios/usuario.php/$1 [L,QSA]
